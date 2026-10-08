@@ -1,6 +1,8 @@
 package com.ecommerce.product.application;
 
 import com.ecommerce.product.domain.*;
+import com.ecommerce.commons.pagination.PageRequest;
+import com.ecommerce.commons.pagination.PageResult;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

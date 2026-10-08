@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/module-auth-as" />
+            <option value="$PROJECT_DIR$/module-commons-lib" />
             <option value="$PROJECT_DIR$/module-gateway-gs" />
             <option value="$PROJECT_DIR$/module-order-rs" />
             <option value="$PROJECT_DIR$/module-product" />

@@ -1,6 +1,8 @@
 package com.ecommerce.product.infrastructure;
 
 import com.ecommerce.product.domain.*;
+import com.ecommerce.commons.pagination.PageRequest;
+import com.ecommerce.commons.pagination.PageResult;
 import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.domain.Specification;
@@ -33,7 +35,7 @@ public class ProductJpaAdapter implements ProductRepositoryPort {
 
     @Override
     public PageResult<Product> findAllWithFilter(ProductFilter filter, PageRequest pageRequest) {
-        // 1. Convert pure PageRequest to Spring Data Pageable (use fully qualified name to avoid collision)
+        // 1. Convert pure PageRequest to Spring Data Pageable (fully qualified to avoid collision)
         org.springframework.data.domain.Pageable pageable =
                 org.springframework.data.domain.PageRequest.of(pageRequest.page(), pageRequest.size());
 
@@ -43,7 +45,7 @@ public class ProductJpaAdapter implements ProductRepositoryPort {
         // 3. Execute the query
         Page<ProductEntity> page = springDataProductRepository.findAll(spec, pageable);
 
-        // 4. Convert Page<ProductEntity> to PageResult<Product>
+        // 4. Convert Page<ProductEntity> to common PageResult<Product>
         List<Product> products = page.getContent().stream()
                 .map(this::toDomain)
                 .toList();

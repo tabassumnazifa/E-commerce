@@ -13,4 +13,7 @@ dependencies {
 
     // Database
     runtimeOnly 'org.postgresql:postgresql'
+
+    // Link to the Common Module
+    implementation project(':module-commons-lib')
 }

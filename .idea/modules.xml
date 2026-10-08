@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-auth-as/ecommerce-platform.module-auth-as.main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-auth-as/ecommerce-platform.module-auth-as.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-gateway-gs/ecommerce-platform.module-gateway-gs.main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-gateway-gs/ecommerce-platform.module-gateway-gs.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-order-rs/ecommerce-platform.module-order-rs.main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-order-rs/ecommerce-platform.module-order-rs.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module-product/ecommerce-platform.module-product.main.iml" filepath="$PROJECT_DIR$/.idea/modules/module-product/ecommerce-platform.module-product.main.iml" />
     </modules>
   </component>
 </project>

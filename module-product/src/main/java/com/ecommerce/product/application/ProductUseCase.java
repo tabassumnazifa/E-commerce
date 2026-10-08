@@ -1,7 +1,7 @@
 package com.ecommerce.product.application;
 
-import com.ecommerce.product.domain.PageRequest;
-import com.ecommerce.product.domain.PageResult;
+import com.ecommerce.commons.pagination.PageRequest;
+import com.ecommerce.commons.pagination.PageResult;
 import com.ecommerce.product.domain.ProductFilter;
 
 import java.util.Optional;

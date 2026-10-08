@@ -1,5 +1,8 @@
 package com.ecommerce.product.domain;
 
+import com.ecommerce.commons.pagination.PageRequest;
+import com.ecommerce.commons.pagination.PageResult;
+
 import java.util.Optional;
 
 // Repository Port - Defines how the Domain interacts with the database

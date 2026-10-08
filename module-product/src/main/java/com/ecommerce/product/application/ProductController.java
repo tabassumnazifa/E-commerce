@@ -1,7 +1,7 @@
 package com.ecommerce.product.application;
 
-import com.ecommerce.product.domain.PageRequest;
-import com.ecommerce.product.domain.PageResult;
+import com.ecommerce.commons.pagination.PageRequest;
+import com.ecommerce.commons.pagination.PageResult;
 import com.ecommerce.product.domain.ProductFilter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -64,7 +64,7 @@ public class ProductController {
         // 1. Build the filter from query parameters
         ProductFilter filter = new ProductFilter(name, category, minPrice, maxPrice);
 
-        // 2. Build the page request
+        // 2. Build the page request using the new COMMON class
         PageRequest pageRequest = new PageRequest(page, size);
 
         // 3. Execute search
