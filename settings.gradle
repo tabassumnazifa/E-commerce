@@ -1,0 +1,6 @@
+rootProject.name = 'ecommerce-platform'
+
+include 'module-gateway-gs'
+include 'module-order-rs'
+include 'module-auth-as'
+include 'module-product' // <--- Added the new Product module here

@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.1.6' apply false
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.ecommerce'
+    version = '0.0.1-SNAPSHOT'
+
+    java {
+        sourceCompatibility = '17'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    // THIS IS THE MISSING PIECE: Tell Gradle to use Spring Boot 3.2.0 versions for all sub-modules
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.0"
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.30'
+        annotationProcessor 'org.projectlombok:lombok:1.18.30'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+}
