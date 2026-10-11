@@ -4,7 +4,16 @@ plugins {
 }
 
 dependencies {
+    // Spring Boot Starters
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Swagger (THIS IS THE MISSING PIECE!)
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+    // Database
     runtimeOnly 'org.postgresql:postgresql'
+
+    // Link to the Common Module
+    implementation project(':module-commons-lib')
 }

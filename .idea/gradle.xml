@@ -5,7 +5,7 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="ms-17 (3)" />
+        <option name="gradleJvm" value="ms-17 (4)" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -14,9 +14,9 @@
             <option value="$PROJECT_DIR$/module-gateway-gs" />
             <option value="$PROJECT_DIR$/module-order-rs" />
             <option value="$PROJECT_DIR$/module-product" />
+            <option value="$PROJECT_DIR$/module-user-rs" />
           </set>
         </option>
-        <option name="resolveExternalAnnotations" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
