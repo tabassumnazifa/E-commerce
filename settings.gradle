@@ -4,4 +4,5 @@ include 'module-gateway-gs'
 include 'module-order-rs'
 include 'module-auth-as'
 include 'module-product'
-include 'module-commons-lib' // <--- Added your existing common module here
+include 'module-commons-lib'
+include 'module-user-rs' // <--- ADDED: This tells Gradle your User module exists!

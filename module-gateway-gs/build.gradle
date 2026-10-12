@@ -1,18 +1,27 @@
 plugins {
-    id 'org.springframework.boot' version '3.2.0'
-    id 'io.spring.dependency-management' // <--- Version removed, managed by root
+    id 'org.springframework.boot' // <--- VERSION REMOVED: It inherits 3.2.5 from the root file
+    id 'io.spring.dependency-management'
     id 'java'
     id 'application'
 }
 
 dependencies {
+    // Link to all other modules
     implementation project(':module-order-rs')
     implementation project(':module-auth-as')
     implementation project(':module-product')
+    implementation project(':module-user-rs')
+    implementation project(':module-commons-lib')
+
+    // Spring Boot Starters
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Swagger
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+    // Database
     runtimeOnly 'org.postgresql:postgresql'
 }
 
