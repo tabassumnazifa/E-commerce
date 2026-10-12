@@ -4,10 +4,21 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "user_profiles")
+<<<<<<< HEAD
+=======
+=======
+@Entity
+@Table(name = "user_profiles") // Named differently to avoid conflict with the Auth module's 'users' table
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
 @Getter
 @Setter
 public class UserProfileEntity {
@@ -19,6 +30,10 @@ public class UserProfileEntity {
     private String username;
 
     private String email;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -32,4 +47,17 @@ public class UserProfileEntity {
     protected void onCreate() {
         createdAt = LocalDate.now();
     }
+<<<<<<< HEAD
+=======
+=======
+
+    private String firstName;
+
+    private String lastName;
+
+    private String phoneNumber;
+
+    private String address;
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
 }

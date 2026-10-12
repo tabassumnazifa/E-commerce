@@ -5,15 +5,30 @@ import com.ecommerce.commons.pagination.PageResult;
 import com.ecommerce.user.application.dto.CreateUserRequest;
 import com.ecommerce.user.application.dto.UserResponse;
 import com.ecommerce.user.domain.UserFilter;
+<<<<<<< HEAD
 import com.ecommerce.user.domain.in.UserUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+=======
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
+<<<<<<< HEAD
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
+=======
+=======
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
 import java.util.Optional;
 
 @RestController
@@ -23,6 +38,13 @@ public class UserController {
 
     private final UserUseCase userUseCase;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    // Constructor Injection
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
     public UserController(UserUseCase userUseCase) {
         this.userUseCase = userUseCase;
     }
@@ -44,7 +66,15 @@ public class UserController {
     }
 
     @GetMapping
+<<<<<<< HEAD
     @Operation(summary = "Search user profiles with filters, date range, and pagination")
+=======
+<<<<<<< HEAD
+    @Operation(summary = "Search user profiles with filters, date range, and pagination")
+=======
+    @Operation(summary = "Search user profiles with filters and pagination")
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
     public ResponseEntity<PageResult<UserResponse>> searchUsers(
             @Parameter(description = "Username (partial match)")
             @RequestParam(value = "username", required = false) String username,
@@ -58,6 +88,10 @@ public class UserController {
             @Parameter(description = "Last Name (partial match)")
             @RequestParam(value = "lastName", required = false) String lastName,
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
             // --- NEW DATE RANGE PARAMETERS ---
             @Parameter(description = "Start Date (YYYY-MM-DD)")
             @RequestParam(value = "startDate", required = false)
@@ -67,6 +101,11 @@ public class UserController {
             @RequestParam(value = "endDate", required = false)
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
             @Parameter(description = "Page number (0-indexed)")
             @RequestParam(value = "page", defaultValue = "0") int page,
 
@@ -74,9 +113,21 @@ public class UserController {
             @RequestParam(value = "size", defaultValue = "10") int size) {
 
         // 1. Build the filter from query parameters
+<<<<<<< HEAD
         UserFilter filter = new UserFilter(username, email, firstName, lastName, startDate, endDate);
 
         // 2. Build the page request
+=======
+<<<<<<< HEAD
+        UserFilter filter = new UserFilter(username, email, firstName, lastName, startDate, endDate);
+
+        // 2. Build the page request
+=======
+        UserFilter filter = new UserFilter(username, email, firstName, lastName);
+
+        // 2. Build the page request using the shared common class
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
+>>>>>>> 669c2b5519ada94729467790e6786f8cd9a73ece
         PageRequest pageRequest = new PageRequest(page, size);
 
         // 3. Execute search
