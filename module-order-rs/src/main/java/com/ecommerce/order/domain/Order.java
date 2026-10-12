@@ -5,7 +5,6 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-// Pure Domain Model - No database annotations!
 @Getter
 @Setter
 public class Order {

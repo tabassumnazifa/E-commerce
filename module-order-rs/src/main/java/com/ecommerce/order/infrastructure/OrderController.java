@@ -1,31 +1,27 @@
 package com.ecommerce.order.infrastructure;
 
-// These imports fix the "Cannot resolve symbol" errors
-import com.ecommerce.order.application.CreateOrderRequest;
-import com.ecommerce.order.application.CreateOrderUseCase;
-import com.ecommerce.order.domain.Order;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ecommerce.order.application.OrderService; // Make sure this matches your service name
+import com.ecommerce.order.application.dto.CreateOrderRequest;
+import com.ecommerce.order.application.dto.OrderResponse;
+import com.ecommerce.order.domain.in.OrderUseCase; // <--- Make sure this matches the interface
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/orders")
-@Tag(name = "Order Module", description = "Order management APIs")
 public class OrderController {
 
-    private final CreateOrderUseCase createOrderUseCase;
+    private final OrderUseCase orderUseCase; // <--- Changed from CreateOrderUseCase
 
-    // Notice we inject the PORT (UseCase), not the Service implementation directly!
-    public OrderController(CreateOrderUseCase createOrderUseCase) {
-        this.createOrderUseCase = createOrderUseCase;
+    public OrderController(OrderUseCase orderUseCase) { // <--- Changed here too
+        this.orderUseCase = orderUseCase;
     }
 
     @PostMapping
-    @Operation(summary = "Create a new order")
-    public Order createOrder(@RequestBody CreateOrderRequest request) {
-        return createOrderUseCase.execute(request);
+    public ResponseEntity<OrderResponse> createOrder(@RequestBody CreateOrderRequest request) {
+        // Call the service method
+        OrderResponse response = orderUseCase.createOrder(request);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }

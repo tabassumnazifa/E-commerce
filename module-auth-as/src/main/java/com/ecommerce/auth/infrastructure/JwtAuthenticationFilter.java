@@ -1,7 +1,7 @@
 package com.ecommerce.auth.infrastructure;
 
 import com.ecommerce.auth.domain.User;
-import com.ecommerce.auth.domain.UserRepositoryPort;
+import com.ecommerce.auth.domain.out.UserRepositoryPort;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,37 +1,27 @@
 package com.ecommerce.auth.infrastructure;
 
-import com.ecommerce.auth.application.AuthResponse;
-import com.ecommerce.auth.application.AuthUseCase;
-import com.ecommerce.auth.application.LoginRequest;
-import com.ecommerce.auth.application.RegisterRequest;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ecommerce.auth.application.AuthService;
+import com.ecommerce.auth.application.dto.AuthResponse; // <--- Added this import
+import com.ecommerce.auth.application.dto.RegisterRequest;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@Tag(name = "Auth Module", description = "Authentication and Registration APIs")
 public class AuthController {
 
-    private final AuthUseCase authUseCase;
+    private final AuthService authService;
 
-    // Constructor Injection (Depends only on the Application Port)
-    public AuthController(AuthUseCase authUseCase) {
-        this.authUseCase = authUseCase;
+    public AuthController(AuthService authService) {
+        this.authService = authService;
     }
 
     @PostMapping("/register")
-    @Operation(summary = "Register a new user")
-    public AuthResponse register(@RequestBody RegisterRequest request) {
-        return authUseCase.register(request);
-    }
-
-    @PostMapping("/login")
-    @Operation(summary = "Login an existing user")
-    public AuthResponse login(@RequestBody LoginRequest request) {
-        return authUseCase.login(request);
+    public ResponseEntity<AuthResponse> register(@Valid @RequestBody RegisterRequest request) {
+        // Changed String to AuthResponse to match the Service
+        AuthResponse result = authService.register(request);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 }

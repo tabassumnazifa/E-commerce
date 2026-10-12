@@ -19,7 +19,6 @@ public class SwaggerConfig {
                         .title("E-Commerce Modular Monolith API")
                         .version("1.0")
                         .description("API documentation for the E-Commerce platform"))
-                // Add global security scheme (Bearer Token)
                 .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new Components()
                         .addSecuritySchemes("Bearer Authentication", createAPIKeyScheme()));
@@ -53,6 +52,14 @@ public class SwaggerConfig {
         return GroupedOpenApi.builder()
                 .group("Product Module")
                 .pathsToMatch("/api/products/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi userApi() {
+        return GroupedOpenApi.builder()
+                .group("User Module")
+                .pathsToMatch("/api/users/**")
                 .build();
     }
 }

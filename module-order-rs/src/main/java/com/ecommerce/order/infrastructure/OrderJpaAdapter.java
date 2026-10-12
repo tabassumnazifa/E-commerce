@@ -1,7 +1,7 @@
 package com.ecommerce.order.infrastructure;
 
 import com.ecommerce.order.domain.Order;
-import com.ecommerce.order.domain.OrderRepositoryPort;
+import com.ecommerce.order.domain.out.OrderRepositoryPort;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
