@@ -24,7 +24,11 @@ subprojects {
 
     dependencyManagement {
         imports {
+<<<<<<< HEAD
             mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.5"
+=======
+            mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.5" // <--- UPGRADED HERE TOO
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
         }
     }
 

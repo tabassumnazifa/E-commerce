@@ -8,11 +8,17 @@ import com.ecommerce.user.domain.UserFilter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+<<<<<<< HEAD
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+=======
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
 import java.util.Optional;
 
 @RestController
@@ -22,6 +28,10 @@ public class UserController {
 
     private final UserUseCase userUseCase;
 
+<<<<<<< HEAD
+=======
+    // Constructor Injection
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
     public UserController(UserUseCase userUseCase) {
         this.userUseCase = userUseCase;
     }
@@ -43,7 +53,11 @@ public class UserController {
     }
 
     @GetMapping
+<<<<<<< HEAD
     @Operation(summary = "Search user profiles with filters, date range, and pagination")
+=======
+    @Operation(summary = "Search user profiles with filters and pagination")
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
     public ResponseEntity<PageResult<UserResponse>> searchUsers(
             @Parameter(description = "Username (partial match)")
             @RequestParam(value = "username", required = false) String username,
@@ -57,6 +71,7 @@ public class UserController {
             @Parameter(description = "Last Name (partial match)")
             @RequestParam(value = "lastName", required = false) String lastName,
 
+<<<<<<< HEAD
             // --- NEW DATE RANGE PARAMETERS ---
             @Parameter(description = "Start Date (YYYY-MM-DD)")
             @RequestParam(value = "startDate", required = false)
@@ -66,6 +81,8 @@ public class UserController {
             @RequestParam(value = "endDate", required = false)
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate,
 
+=======
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
             @Parameter(description = "Page number (0-indexed)")
             @RequestParam(value = "page", defaultValue = "0") int page,
 
@@ -73,9 +90,15 @@ public class UserController {
             @RequestParam(value = "size", defaultValue = "10") int size) {
 
         // 1. Build the filter from query parameters
+<<<<<<< HEAD
         UserFilter filter = new UserFilter(username, email, firstName, lastName, startDate, endDate);
 
         // 2. Build the page request
+=======
+        UserFilter filter = new UserFilter(username, email, firstName, lastName);
+
+        // 2. Build the page request using the shared common class
+>>>>>>> e90d4ee101b79c0c21cecb885549eae7ea9109cc
         PageRequest pageRequest = new PageRequest(page, size);
 
         // 3. Execute search
